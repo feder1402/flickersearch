@@ -1,0 +1,26 @@
+{
+  "id": "Flickr Search",
+  "initial": "state",
+  "states" : {
+    "initial": {
+      "on": {
+        "SEARCH": "searching"
+      }
+    },
+    "searching": {
+      "on": {
+        "RESULTS": "displaying_results"
+      }
+    },
+    "displaying_results": {
+      "on": {
+        "ZOOM": "zoomed_in"
+      }
+    },
+    "zoomed_in": {
+      "on": {
+        "ZOOM_OUT": "displaying_results"
+      }
+    }
+  }
+}
