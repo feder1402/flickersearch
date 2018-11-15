@@ -7,6 +7,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import Machine from './search.machine.spec'
 
 export default () => {
+
+
   useEffect( () => {
     const unsubscribe = Machine.subscribe( ( event ) => console.log( 'Event: ' + event ) )
     Machine.start();
