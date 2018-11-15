@@ -11,19 +11,21 @@ const App = ( { classes } ) => {
 
   return (
       <div className={classes.root}>
-          <Header/>
-          <Grid container spacing={24}>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Search/>
-              </Paper>
-            </Grid>
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Results/>
-              </Paper>
-            </Grid>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <Header/>
           </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Search/>
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+              <Results/>
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
   )
 }

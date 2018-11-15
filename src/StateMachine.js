@@ -1,11 +1,11 @@
 import { Machine } from 'xstate';
 import { interpret } from 'xstate/lib/interpreter';
 
-export const create = ( spec ) => {
+export const create = ( spec, options, context ) => {
   let state;
   const listeners = new Set();
 
-  const machine = Machine( spec );
+  const machine = Machine( spec, options, context );
 
   const service = interpret( machine )
       .onTransition( newState => {
@@ -20,7 +20,10 @@ export const create = ( spec ) => {
 
   const getState = () => state;
 
-  const sendEvent = ( event ) => {
+  const getContext = () => machine.context
+
+  const dispatch = ( event ) => {
+    console.log(JSON.stringify(event));
     service.send( event );
   }
 
@@ -29,6 +32,6 @@ export const create = ( spec ) => {
     return () => listeners.delete( listener );
   }
 
-  return Object.freeze({ getState, sendEvent, start, subscribe });
+  return Object.freeze({  dispatch, getContext, getState, start, subscribe });
 }
 

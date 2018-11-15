@@ -1,33 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import ClearIcon from "@material-ui/icons/Clear";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { create } from '../StateMachine';
-import Spec from './search.machine.spec'
+import Machine from './search.machine.spec'
 
 export default () => {
-  const [ query, setQuery ] = useState( '' );
-  let _machine;
-
-  useEffect(() => {
-    const machine = create(Spec);
-    _machine = machine;
-    const unsubscribe = machine.subscribe((event) => console.log('Event: ' + event))
-    machine.start();
+  useEffect( () => {
+    const unsubscribe = Machine.subscribe( ( event ) => console.log( 'Event: ' + event ) )
+    Machine.start();
     // Cleanup
     return function cleanup() {
       unsubscribe();
     };
-  });
+  }, []);
+
+  const { query } = Machine.getContext();
 
   return (
       <div>
         <form>
-          <SearchInput onChange={( e ) => setQuery( e.target.value )} value={query}/>
-          <ClearButton onClick={() => setQuery( '' )}/>
-          <SearchButton onClick={() => _machine.sendEvent( {type: 'SEARCH', query} )}/>
+          <SearchInput
+              onChange={( e ) => Machine.dispatch( { type: 'UPDATE_QUERY', payload: { query: e.target.value } } )}
+              value={query}/>
+          <ClearButton onClick={() => Machine.dispatch( { type: 'CLEAR_QUERY' } )}/>
+          <SearchButton onClick={() => Machine.dispatch( { type: 'SEARCH_QUERY' } )}/>
         </form>
       </div>
   );
