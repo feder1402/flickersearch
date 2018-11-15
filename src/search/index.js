@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useReducer } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -6,28 +6,35 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import Machine from './search.machine.spec'
 
+
+const useMachineReducer = (machine) => {
+
+  machine.start();
+  machine.subscribe( ( event ) => console.log( 'State: ' + event ) )
+
+  const reducer = ( context, event ) => {
+    machine.dispatch( event );
+    return machine.getContext();
+  }
+
+  const [context, dispatch] = useReducer(reducer, machine.getContext());
+
+  return [context, dispatch]
+
+}
+
 export default () => {
 
-
-  useEffect( () => {
-    const unsubscribe = Machine.subscribe( ( event ) => console.log( 'Event: ' + event ) )
-    Machine.start();
-    // Cleanup
-    return function cleanup() {
-      unsubscribe();
-    };
-  }, []);
-
-  const { query } = Machine.getContext();
+  const [{ query }, dispatch] = useMachineReducer(Machine);
 
   return (
       <div>
         <form>
           <SearchInput
-              onChange={( e ) => Machine.dispatch( { type: 'UPDATE_QUERY', payload: { query: e.target.value } } )}
+              onChange={( e ) => dispatch( { type: 'UPDATE_QUERY', payload: { query: e.target.value } } )}
               value={query}/>
-          <ClearButton onClick={() => Machine.dispatch( { type: 'CLEAR_QUERY' } )}/>
-          <SearchButton onClick={() => Machine.dispatch( { type: 'SEARCH_QUERY' } )}/>
+          <ClearButton onClick={() => dispatch( { type: 'CLEAR_QUERY' } )}/>
+          <SearchButton onClick={() => dispatch( { type: 'SEARCH_QUERY' } )}/>
         </form>
       </div>
   );

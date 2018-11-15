@@ -1,4 +1,4 @@
-import { Machine } from 'xstate';
+import { Machine, actions } from 'xstate';
 import { interpret } from 'xstate/lib/interpreter';
 
 export const create = ( spec, options, context ) => {
@@ -34,4 +34,7 @@ export const create = ( spec, options, context ) => {
 
   return Object.freeze({  dispatch, getContext, getState, start, subscribe });
 }
+
+export const assign = actions.assign;
+
 
