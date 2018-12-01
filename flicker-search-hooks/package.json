@@ -1,0 +1,27 @@
+{
+  "name": "flickr-search",
+  "version": "1.0.0",
+  "description": "Describe flickr-search here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-react-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-react-app",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {
+    "eventemitter3": "^3.1.0",
+    "react": "^16.7.0-alpha",
+    "react-cache": "^2.0.0-alpha.1",
+    "react-dom": "^16.7.0-alpha",
+    "react-error-boundaries": "^1.1.4"
+  },
+  "devDependencies": {
+    "nwb": "0.23.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}
