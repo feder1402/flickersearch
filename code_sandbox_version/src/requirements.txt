@@ -1,5 +1,0 @@
-Show a search input and a search button that allows the user to search for photos
-When the search button is clicked, fetch photos with the search term from Flickr
-Display the search results in a grid of small sized photos
-When a photo is clicked/tapped, show the full size photo
-When a full - sized photo is clicked/tapped again, go back to the gallery view
