@@ -3,6 +3,12 @@
 This rerpository is an experiment, implementing a relatively simple scenario: searching photos in Flickr, using different approaches. 
 The goal of this exercise is to compare and contrast the different implementations.
 
+Right now there are three implementations:
+
+* flickr-search-classes: uses React with classes
+* flickr-search-hooks: uses the new React hooks
+* flickr-search-reaction: work still in progress - uses my own still in development, react framework that uses statecharts and actors
+
 
 ## Use Case
 
