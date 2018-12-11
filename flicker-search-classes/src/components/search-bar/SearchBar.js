@@ -46,6 +46,7 @@ class SearchBar extends Component {
                     type='text'
                     value={query}
                 />
+                {' '}
                 <button
                     disabled={isLoading || error || query === EMPTY || isInvalid(query)}
                     // onClick={this.onSearchClick}

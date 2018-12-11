@@ -37,7 +37,7 @@ const SearchBar = ({ onSearch = () => { }, error, isLoading }) => {
                 type='submit'
             >
                 Search
-                </button>
+            </button>
             <div id="message">{message}</div>
         </form >
     )
