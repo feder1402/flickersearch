@@ -1,24 +1,41 @@
-const Switch = Machine({
+
+  const Switch = Machine({
     id: "switch",
     initial: "enabled",
+    context: {
+      query: ''
+    },
     states: {
-      enabled: {
-        on: { DISABLE: "disabled" }
-      },
       disabled: {
-        id: "disabled",
+        on: { ENABLE: "enabled" }
+      },
+      enabled: {
+        id: "enabled",
         initial: "empty",
         states: {
-            empty: {},
-            valid: { on: { SUBMIT: "empty" } },
-            invalid: {}
+          empty: {},
+          valid: { on: { SUBMIT: "done" } },
+          invalid: {},
+          changing: {
+            on: [
+              {
+                target: "empty",
+                cond: (ctx, event) => event.value.length === 0
+              },
+              {
+                target: "valid",
+                cond: (ctx, event) => event.value.length > 0
+              }
+            ]
+          }
         },
         on: {
-            INVALID: "invalid",
-            VALID: "valid",
-            EMPTY: "empty",
-            ENABLE: "#switch.enabled" 
+            ON_CHANGE: ".changing"
         }
       }
+    },
+    on: {
+      DISABLE: "#switch.disabled"
     }
   });
+  
