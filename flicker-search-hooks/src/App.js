@@ -1,5 +1,4 @@
-import React, { StrictMode } from 'react'
-import { ErrorBoundary, FallbackView } from 'react-error-boundaries'
+import React from 'react'
 import Loading from './components/Loading'
 
 import Header from './components/Header'
