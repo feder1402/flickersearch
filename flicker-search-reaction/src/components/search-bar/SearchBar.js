@@ -35,12 +35,11 @@ const SearchBar = ({ onSearch = () => { }, error, isLoading }) => {
             <button
                 disabled={isLoading || error || query === '' || isInvalid(query)}
                 type='submit'
-            >
-                Search
-                </button>
+            > Search
+            </button>
             <div id="message">{message}</div>
         </form >
     )
 }
 
-export default SearchBar
+    export default SearchBar

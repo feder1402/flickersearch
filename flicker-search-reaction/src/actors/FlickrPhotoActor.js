@@ -1,4 +1,4 @@
-import Actor from './react-action/Actors'
+import Actor from '../actors/react-action/Actors'
 import { getFlickrPhotos } from '../model/flicker-model'
 
 const behavior = {

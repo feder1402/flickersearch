@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Results = ({ ItemRender, collection }) =>
+const Results = ({ ItemRender, ItemCollection }) =>
     <div  className="container">
-        {collection && collection.map(item => <ItemRender key={item.id} {...item} />)}
+        {ItemCollection && ItemCollection.map(item => <ItemRender key={item.id} {...item} />)}
     </div>
 
 export default Results
