@@ -9,6 +9,8 @@ Right now there are three implementations:
 * flickr-search-hooks: uses the new React hooks
 * flickr-search-reaction: work still in progress - uses my own still in development, react framework that uses statecharts and actors
 
+## Install
+To run the projects 
 
 ## Use Case
 
