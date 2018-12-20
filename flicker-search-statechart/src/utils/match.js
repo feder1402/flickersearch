@@ -1,3 +1,4 @@
-const executeIfFunction = f => typeof f === 'function' ? f() : f;
-const switchcase = cases => defaultCase => key => cases.hasOwnProperty(key) ? cases[key] : defaultCase;
-export const match = cases => defaultCase => key => switchcase(cases)(defaultCase)(key);
+const DefaultCase = () => <h1>Unknown State</h1>
+
+const switchcase = cases => key => cases.hasOwnProperty(key) ? cases[key] : DefaultCase;
+export const match = cases => key => extendedState => switchcase(cases)(key)(extendedState);
