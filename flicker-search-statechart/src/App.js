@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 import './App.css'
 const xState = {
   appName: 'FlickrSearch (Statecharts)',
@@ -13,8 +12,6 @@ const tag = 'cats'
 import results from './getPhotos';
 import AppScenes from './App.Scenes';
 
-const AppRender = (state, xState) => AppScenes(state)(xState)
-
-const App = () => AppRender('init', {...xState, tag: 'cats', results})
+const App = ({state}) => AppScenes(state)({...xState, tag: 'cats', results})
 
 export default App 
