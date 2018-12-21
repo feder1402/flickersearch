@@ -8,10 +8,10 @@ This works well for static applications or simple interactions but for many scen
 Designing with statecharts focuses first on the dynamic, or behavioral changes of the application.
 
 ## Steps:
+1. Build the Puppet
 1. Identify the states and transitions (Places where the application behavior changes)
     1. Identify the main screens and their transitions
     1. For each screen, identify any subwindow (dialog, mopdal, etc)
     1. For each subwindow, identify their states and transitions 
 1. Identify the different UI renditions
 1. Identify the actions triggered by each state and transition
-
