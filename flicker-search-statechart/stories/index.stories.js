@@ -1,20 +1,24 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { host } from 'storybook-host';
+import { withKnobs } from '@storybook/addon-knobs';
 
-import App from '../src/App'
-import photos from '../src/getPhotos';
+import AppStories from './App.stories'
+import SearchBoxStories from './SearchBox.stories'
 
 storiesOf('Components', module)
   .addDecorator(withKnobs)
-  .add('App', () => {
-    const options = ['init', 'loading', 'results', 'unknown']
-
-    const state = select('state', options, 'init');
-    const appName = text('appName', 'FlickrSearch (Statecharts)')
-    const tag = text('tag', 'cats')
-    const results = object('results', photos)
-
-    return (<App state={state} xState={{appName, tag, results}}/>)
-  })
+  .addDecorator(
+    host({
+      title: 'A host container for components under test.',
+      align: 'top center',
+      // height: '100%',
+      // width: '100%',
+      background: "white",
+      backdrop: "lightgray",
+      border: true
+    }),
+  )
+  .addWithJSX('App', AppStories)
+  .addWithJSX('SearchBox', SearchBoxStories)

@@ -1,34 +1,36 @@
 import React from 'react'
 
 import Header from './components/Header';
-import SearchBar from './components/search-bar/SearchBar';
+import SearchBar from './components/SearchBar';
 import Results from './components/Results';
 import { match } from './utils/match';
 import Photo from './components/Photo';
 
-const initScene = ({ appName }) => <div className="App">
-  <Header AppName={appName} />
-  <div>
-    <SearchBar />
-  </div>
-</div>;
+const Base = ({ appName, children }) =>
+  <div className="App">
+    <Header AppName={appName} />
+    <div>
+      {children}
+    </div>
+  </div>;
 
-const loadingScene = ({ appName }) => <div className="App">
-  <Header AppName={appName} />
-  <div>
+const initScene = ({ appName }) =>
+  <Base appName={appName}>
+    <SearchBar />
+  </Base>
+
+const loadingScene = ({ appName }) =>
+  <Base appName={appName}>
     <SearchBar />
     Loading...
-  </div>
-</div>;
+</Base>
 
-const resultsScene = ({ appName, tag, results }) => <div className="App">
-  <Header AppName={appName} ItemCollection={results}/>
-  <div>
+const resultsScene = ({ appName, tag, results }) =>
+  <Base appName={appName}>
     <SearchBar />
     <h3>tag: {tag}</h3>
     <Results ItemRender={Photo} ItemCollection={results} />
-  </div>
-</div>;
+  </Base>
 
 const scenes = {
   init: (xState) => initScene(xState),

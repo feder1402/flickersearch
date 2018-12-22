@@ -4,11 +4,15 @@ import './SearchBar.css'
 
 const isInvalid = s => !(/^[a-z]*$/i.test(s))
 
-const SearchBar = ({ onSearch = () => { }, error, isLoading }) => {
+const SearchBar = () => {
+    const onSearch = () => { }
+    const error = null
+    const isLoading = false
+
     const [query, setQuery] = useState('')
 
     // Set focus on inout box (UC 1.1)
-    const searchRef = useFocus(null)
+   const searchRef = useFocus('')
 
     // Fire search call when user clicks button (UC 3.1)
     const onSubmit = (e) => {
@@ -21,7 +25,7 @@ const SearchBar = ({ onSearch = () => { }, error, isLoading }) => {
 
     const message = isInvalid(query) ? 'Queries can have just letters' : ''
     return (
-        < form onSubmit={onSubmit} >
+        <form onSubmit={onSubmit} >
             <input
                 className={isInvalid(query) ? "error" : 'normal'}
                 disabled={isLoading || error}
