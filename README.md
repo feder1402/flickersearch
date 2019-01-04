@@ -10,7 +10,12 @@ Right now there are three implementations:
 * flickr-search-reaction: work still in progress - uses my own still in development, react framework that uses statecharts and actors
 
 ## Install
-To run the projects 
+To run each one of the projects:
+
+* Go into the project forlder (e.g. `cd ./flickr-search-classes`)
+* npm install
+* npm start
+* Open your browser and visit http://localhost:3000
 
 ## Use Case
 
