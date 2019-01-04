@@ -1,23 +1,37 @@
 # flickersearch
 
-This rerpository is an experiment, implementing a relatively simple scenario: searching photos in Flickr, using different approaches. 
-The goal of this exercise is to compare and contrast the different implementations.
+This rerpository is an experiment, implementing a relatively simple scenario--searching photos in Flickr--using React but with different approaches. The goal of this exercise is to compare and contrast the different implementations in terms of simplicity and quality of the code. Creating 'normal' or vanilla implementation allows us to have a baseline against which to compare implementations using newer approaches.
 
-Right now there are three implementations:
+See the Use Case section for the application requirements.
 
-* flickr-search-classes: uses React with classes
-* flickr-search-hooks: uses the new React hooks
-* flickr-search-reaction: work still in progress - uses my own still in development, react framework that uses statecharts and actors
+## Projects
+Right now there are two complete and two in progress implementations; each one inside its own project forlder.
 
-## Install
-To run each one of the projects:
+The two first projects are 'traditional' implementations using classes and hooks. The other two use actors and statecharts. Once the experimental ones are completed, we can compare them against the traditiuonal ones used as baselines and determine the cost benefit of the new mechanisms.
 
-* Go into the project forlder (e.g. `cd ./flickr-search-classes`)
-* npm install
-* npm start
-* Open your browser and visit http://localhost:3000
+* flickr-search-classes: done, uses React with classes
+* flickr-search-hooks: done, uses the new React hooks
+* flickr-search-reaction: experimental, still in progress - uses Actors and Statecharts
+* flickr-search-statemachine: experimental, still in progress - uses Statecharts
+
+## To run any one of the projects:
+
+Clone the repository:
+```js
+git clone https://github.com/feder1402/flickersearch.git
+cd flickersearch
+```
+
+Go into the project folder you want to run
+```js
+cd ./flickr-search-classes
+npm install
+npm start
+```
+Open your browser and visit http://localhost:3000/
 
 ## Use Case
+All the projects implement the same requirements specified here.
 
 1. When the user visits the FlickrSearch page, the system shows:
    1. an empty input box to enter a tag (focused)
