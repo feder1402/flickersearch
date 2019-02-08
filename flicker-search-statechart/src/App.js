@@ -2,8 +2,8 @@ import React from 'react'
 
 import './App.css'
 
-import AppScenes from './App.Scenes';
+import AppPuppet from './App.Puppet';
 
-const App = ({state, xState}) => AppScenes(state)(xState)
+const App = ({state, xState}) => AppPuppet(state)(xState)
 
 export default App 

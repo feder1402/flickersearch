@@ -38,7 +38,7 @@ All the projects implement the same requirements specified here.
    2. a search button to submit the query (disabled)
 2. As the user enters the tag in the search box, if the tag is
    1. empty 
-       1. the input box shows a 'Enter your tag’ placeholder
+      1. the input box shows a 'Enter your tag’ placeholder
 	   2. the search button is disabled
    2. is not empty and
       1. is Valid: it contains only letters a-zA-Z
