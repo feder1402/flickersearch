@@ -1,4 +1,5 @@
 # flickersearch
+[![Known Vulnerabilities](https://snyk.io/test/github/storybooks/storybook/badge.svg)](https://snyk.io/test/github/storybooks/storybook)
 [![BCH compliance](https://bettercodehub.com/edge/badge/feder1402/flickersearch?branch=master)](https://bettercodehub.com/)
 ----------------------------------------------------------------------
 
