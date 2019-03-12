@@ -1,4 +1,10 @@
 # flickersearch
+[![Known Vulnerabilities](https://snyk.io/test/github/storybooks/storybook/badge.svg)](https://snyk.io/test/github/storybooks/storybook)
+
+[![BCH compliance](https://bettercodehub.com/edge/badge/feder1402/flickersearch?branch=master)](https://bettercodehub.com/)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/signalr/signalr/badge?style=plastic)](https://www.codefactor.io/repository/github/signalr/signalr)
+----------------------------------------------------------------------
 
 This rerpository is an experiment, implementing a relatively simple scenario--searching photos in Flickr--using React but with different approaches. The goal of this exercise is to compare and contrast the different implementations in terms of simplicity and quality of the code. Creating 'normal' or vanilla implementation allows us to have a baseline against which to compare implementations using newer approaches.
 
